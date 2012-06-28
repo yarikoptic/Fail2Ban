@@ -19,18 +19,17 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 # Author: Cyril Jaquier
-# 
+#
 # $Revision$
 
-__author__ = "Cyril Jaquier"
-__version__ = "$Revision$"
-__date__ = "$Date$"
-__copyright__ = "Copyright (c) 2004 Cyril Jaquier"
+__author__ = "Cyril Jaquier and Fail2Ban developers"
+__copyright__ = "Copyright (c) 2004-2012 Cyril Jaquier and Fail2Ban developers"
 __license__ = "GPL"
 
+#from distutils.core import setup
 from distutils.core import setup
-from common.version import version
-from os.path import isfile, join, isdir
+from fail2ban.common.version import version
+from os.path import isfile, join, isdir, exists
 from sys import argv
 from glob import glob
 
@@ -42,39 +41,50 @@ to reject the IP address or executes user defined
 commands.'''
 
 setup(
-	name = "fail2ban", 
-	version = version, 
-	description = "Ban IPs that make too many password failure", 
-	long_description = longdesc, 
-	author = "Cyril Jaquier", 
-	author_email = "cyril.jaquier@fail2ban.org", 
-	url = "http://www.fail2ban.org", 
-	license = "GPL", 
-	platforms = "Posix", 
+	name = "fail2ban",
+	version = version,
+	description = "Ban IPs that cause multiple authentication failures",
+	long_description = longdesc,
+	author = "Cyril Jaquier",
+	author_email = "cyril.jaquier@fail2ban.org",
+	maintainer = "Fail2Ban Developers",
+	maintainer_email = "fail2ban-users@lists.sourceforge.net",
+	url = "http://www.fail2ban.org",
+	license = "GPL",
+	platforms = "Posix",
 	scripts =	[
-					'fail2ban-client', 
-					'fail2ban-server', 
-					'fail2ban-regex'
-				], 
+					'bin/fail2ban-client',
+					'bin/fail2ban-server',
+					'bin/fail2ban-regex',
+				],
 	packages =	[
-					'common', 
-					'client', 
-					'server'
-				], 
+					'fail2ban',
+					'fail2ban.common',
+					'fail2ban.client',
+					'fail2ban.server',
+					'fail2ban.tests',
+				],
 	data_files =	[
-						('/etc/fail2ban', 
-							glob("config/*.conf")
-						), 
-						('/etc/fail2ban/filter.d', 
-							glob("config/filter.d/*.conf")
-						), 
-						('/etc/fail2ban/action.d', 
-							glob("config/action.d/*.conf")
-						),
-						('/var/run/fail2ban',
-							''
-						)
-					]
+						#('/etc/fail2ban',
+						#	glob("config/*.conf")
+						#),
+						#('/etc/fail2ban/filter.d',
+						#	glob("config/filter.d/*.conf")
+						#),
+						#('/etc/fail2ban/action.d',
+						#	glob("config/action.d/*.conf")
+						#),
+						#('/var/run/fail2ban',
+						#	''
+						#),
+						('fail2ban/tests/files',
+						 [f for f in glob(join('fail2ban', 'tests', 'files', '*.log'))
+                         if isfile(f)]),
+                        ## Log files for matching filters
+						('fail2ban/tests/logs',
+						 [f for f in glob(join('fail2ban', 'tests', 'logs', '*'))
+                         if exists(join('config', 'filter.d', '%s.conf' % f))]),
+                         ]
 )
 
 # Do some checks after installation
@@ -84,20 +94,20 @@ elements =	{
 				"/etc/":
 					[
 						"fail2ban.conf"
-					], 
+					],
 				"/usr/bin/":
 					[
 						"fail2ban.py"
-					], 
+					],
 				"/usr/lib/fail2ban/firewall/":
 					[
-						"iptables.py", 
-						"ipfwadm.py", 
+						"iptables.py",
+						"ipfwadm.py",
 						"ipfw.py"
 					],
 				"/usr/lib/fail2ban/":
 					[
-						"version.py", 
+						"version.py",
 						"protocol.py"
 					]
 			}
