@@ -68,14 +68,13 @@ and if your issue is not yet known -- file a bug report.
 If you would like to troubleshoot or discuss: join the mailing list
 https://lists.sourceforge.net/lists/listinfo/fail2ban-users
 
-If you just appreciate this program: send kudos to the original
-author: Cyril Jaquier: <cyril.jaquier@fail2ban.org>
 
+Authors:
+--------
 
-Thanks:
--------
-
-See THANKS file.
+Fail2ban was originally developed by  Cyril Jaquier <cyril.jaquier@fail2ban.org>
+and later developed and maintained by a community. See THANKS file.  If you like
+the program please send your kudos to Cyril or the mailing list.
 
 License:
 --------
