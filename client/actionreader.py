@@ -34,7 +34,14 @@ from configreader import ConfigReader
 logSys = logging.getLogger("fail2ban.client.config")
 
 class ActionReader(ConfigReader):
-	
+
+	opts_defs = [["string", "actionstart", ""],
+				 ["string", "actionstop", ""],
+				 ["string", "actioncheck", ""],
+				 ["string", "actionban", ""],
+				 ["string", "actionunban", ""],
+				 ["bool",	"passenviron", False]]
+
 	def __init__(self, action, name):
 		ConfigReader.__init__(self)
 		self.__file = action[0]
@@ -57,13 +64,7 @@ class ActionReader(ConfigReader):
 		return ConfigReader.read(self, "action.d/" + self.__file)
 	
 	def getOptions(self, pOpts):
-		opts = [["string", "actionstart", ""],
-				["string", "actionstop", ""],
-				["string", "actioncheck", ""],
-				["string", "actionban", ""],
-				["string", "actionunban", ""],
-				["bool",   "passenviron", ""]]
-		self.__opts = ConfigReader.getOptions(self, "Definition", opts, pOpts)
+		self.__opts = ConfigReader.getOptions(self, "Definition", self.opts_defs, pOpts)
 		
 		if self.has_section("Init"):
 			for opt in self.options("Init"):
@@ -74,19 +75,12 @@ class ActionReader(ConfigReader):
 		head = ["set", self.__name]
 		stream = list()
 		stream.append(head + ["addaction", self.__file])
+
+		known_opts = [n for t, n, xxx in opts_defs]
 		for opt in self.__opts:
-			if opt == "actionstart":
-				stream.append(head + ["actionstart", self.__file, self.__opts[opt]])
-			elif opt == "actionstop":
-				stream.append(head + ["actionstop", self.__file, self.__opts[opt]])
-			elif opt == "actioncheck":
-				stream.append(head + ["actioncheck", self.__file, self.__opts[opt]])
-			elif opt == "actionban":
-				stream.append(head + ["actionban", self.__file, self.__opts[opt]])
-			elif opt == "actionunban":
-				stream.append(head + ["actionunban", self.__file, self.__opts[opt]])
-			elif opt == "passenviron":
-				stream.append(head + ["passenviron", self.__file, self.__opts[opt]])
+			if opt in known_opts:
+				stream.append(head + [opt, self.__file, str(self.__opts[opt])])
+
 		# cInfo
 		if self.__cInfo:
 			for p in self.__cInfo:
