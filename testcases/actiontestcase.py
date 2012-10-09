@@ -65,6 +65,7 @@ class PassEnvironment(unittest.TestCase):
 		os.unlink(self.__fname)
 		if os.path.exists(self.__ofname):
 			os.unlink(self.__ofname)
+			pass
 
 
 	def _test_exported(self, d):
@@ -73,8 +74,9 @@ class PassEnvironment(unittest.TestCase):
 		"""
 		for k, v in d.iteritems():
 			full_key = 'FAIL2BAN_%s' % k
-			self.assertTrue('export %s="%s"\n' % (full_key, v)
-							in open(self.__ofname).readlines(),
+			target = 'export %s="%s"\n' \
+			  % (full_key, v.replace('$', r'\$').replace('"', r'\"'))
+			self.assertTrue(target in ''.join(open(self.__ofname).readlines()),
 				msg="Found no export entry for %s in %s" % (full_key, self.__ofname))
 			self.assertFalse(os.getenv(full_key),
 							 msg="There should be no %s in environment" % full_key)
@@ -106,7 +108,6 @@ class PassEnvironment(unittest.TestCase):
 		action.execActionBan(aInfo)
 		self._assert_no_hit()
 
-
 	def testPassAInfo(self):
 		action = Action("TestEnv", passEnviron=True)
 		action.setActionBan(self.__fname)
@@ -116,6 +117,15 @@ class PassEnvironment(unittest.TestCase):
 
 		# If we pass some variables in aInfo
 		aInfo = {'var1': "LOADXX1"}
+		action.execActionBan(aInfo)
+		self._test_exported(aInfo)
+
+		aInfo['var_long'] = """
+		Multiline
+		Indented load
+		With some $variables etc!
+		And some cool symbols inside: {}[]'"?<>~!@#$%^&*()-+
+		"""
 		action.execActionBan(aInfo)
 		self._test_exported(aInfo)
 
