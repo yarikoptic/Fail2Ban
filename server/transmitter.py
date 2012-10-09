@@ -193,6 +193,11 @@ class Transmitter:
 			key = command[3]
 			self.__server.delCInfo(name, act, key)
 			return None
+		elif command[1] == "passenviron":
+			act = command[2]
+			value = str2bool(command[3])
+			self.__server.setPassEnviron(name, act, value)
+			return self.__server.getPassEnviron(name, act)
 		elif command[1] == "actionstart":
 			act = command[2]
 			value = command[3]

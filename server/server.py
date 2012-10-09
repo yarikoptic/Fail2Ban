@@ -243,7 +243,13 @@ class Server:
 		
 	def getBanTime(self, name):
 		return self.__jails.getAction(name).getBanTime()
-	
+
+	def setPassEnviron(self, name, action, value):
+		self.__jails.getAction(name).getAction(action).setPassEnviron(value)
+
+	def getPassEnviron(self, name, action):
+		self.__jails.getAction(name).getAction(action).getPassEnviron()
+
 	def setActionStart(self, name, action, value):
 		self.__jails.getAction(name).getAction(action).setActionStart(value)
 	

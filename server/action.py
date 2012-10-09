@@ -27,7 +27,7 @@ __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2004 Cyril Jaquier"
 __license__ = "GPL"
 
-import logging, os
+import itertools, logging, os
 import threading
 #from subprocess import call
 
@@ -46,7 +46,7 @@ _cmd_lock = threading.Lock()
 
 class Action:
 	
-	def __init__(self, name):
+	def __init__(self, name, passEnviron=False):
 		self.__name = name
 		self.__cInfo = dict()
 		## Command executed in order to initialize the system.
@@ -59,6 +59,8 @@ class Action:
 		self.__actionCheck = ''
 		## Command executed in order to stop the system.
 		self.__actionStop = ''
+		## Either we should pass aInfo via environment
+		self.__passEnviron = passEnviron
 		logSys.debug("Created Action")
 	
 	##
@@ -105,7 +107,24 @@ class Action:
 	
 	def delCInfo(self, key):
 		del self.__cInfo[key]
-	
+
+	##
+	# Set the "passEnviron" flag.
+	#
+	# @param value the command
+
+	def setPassEnviron(self, value):
+		self.__passEnviron = value
+		logSys.debug("Set passEnviron = %s" % value)
+
+	##
+	# Get the "passEnviron" flag.
+	#
+	# @return the value
+
+	def getPassEnviron(self):
+		return self.__passEnviron
+
 	##
 	# Set the "start" command.
 	#
@@ -133,7 +152,7 @@ class Action:
 	
 	def execActionStart(self):
 		startCmd = Action.replaceTag(self.__actionStart, self.__cInfo)
-		return Action.executeCmd(startCmd)
+		return self.executeCmd(startCmd)
 	
 	##
 	# Set the "ban" command.
@@ -229,7 +248,7 @@ class Action:
 	
 	def execActionStop(self):
 		stopCmd = Action.replaceTag(self.__actionStop, self.__cInfo)
-		return Action.executeCmd(stopCmd)
+		return self.executeCmd(stopCmd)
 	
 	##
 	# Replaces tags in query with property values in aInfo.
@@ -271,14 +290,14 @@ class Action:
 			return True
 		
 		checkCmd = Action.replaceTag(self.__actionCheck, self.__cInfo)
-		if not Action.executeCmd(checkCmd):
+		if not self.executeCmd(checkCmd):
 			logSys.error("Invariant check failed. Trying to restore a sane" +
 						 " environment")
 			stopCmd = Action.replaceTag(self.__actionStop, self.__cInfo)
-			Action.executeCmd(stopCmd)
+			self.executeCmd(stopCmd)
 			startCmd = Action.replaceTag(self.__actionStart, self.__cInfo)
-			Action.executeCmd(startCmd)
-			if not Action.executeCmd(checkCmd):
+			self.executeCmd(startCmd)
+			if not self.executeCmd(checkCmd):
 				logSys.fatal("Unable to restore environment")
 				return False
 
@@ -291,7 +310,7 @@ class Action:
 		# Replace static fields
 		realCmd = Action.replaceTag(realCmd, self.__cInfo)
 		
-		return Action.executeCmd(realCmd)
+		return self.executeCmd(realCmd, aInfo)
 
 	##
 	# Executes a command.
@@ -305,14 +324,23 @@ class Action:
 	# @param realCmd the command to execute
 	# @return True if the command succeeded
 
-	#@staticmethod
-	def executeCmd(realCmd):
+	def executeCmd(self, realCmd, aInfo=None):
 		logSys.debug(realCmd)
 		_cmd_lock.acquire()
+		env_cleanup = []
 		try: # Try wrapped within another try needed for python version < 2.5
 			try:
 				# The following line gives deadlock with multiple jails
 				#retcode = call(realCmd, shell=True)
+				if self.__passEnviron:
+					logSys.debug("Adjusting environment for %s" % self.__name)
+					env_items = self.__cInfo.items()
+					if aInfo is not None:
+						env_items = env_items + aInfo.items()
+					for k, v in env_items:
+						k_full = 'FAIL2BAN_%s' % k
+						os.putenv(k_full, str(v))
+						env_cleanup.append(k_full)
 				retcode = os.system(realCmd)
 				if retcode == 0:
 					logSys.debug("%s returned successfully" % realCmd)
@@ -322,7 +350,8 @@ class Action:
 			except OSError, e:
 				logSys.error("%s failed with %s" % (realCmd, e))
 		finally:
+			for k in env_cleanup:
+				os.unsetenv(k)
 			_cmd_lock.release()
 		return False
-	executeCmd = staticmethod(executeCmd)
 	
