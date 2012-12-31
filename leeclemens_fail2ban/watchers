@@ -1,0 +1,8 @@
+[ GithubUser
+    { githubOwnerAvatarUrl = "https://secure.gravatar.com/avatar/104662114b58295898fa6a8cf741f986?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
+    , githubOwnerLogin = "leeclemens"
+    , githubOwnerUrl = "https://api.github.com/users/leeclemens"
+    , githubOwnerId = 1250267
+    , githubOwnerGravatarId = "104662114b58295898fa6a8cf741f986"
+    }
+]
