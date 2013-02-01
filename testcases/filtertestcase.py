@@ -1,4 +1,4 @@
-# emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: t -*-
+# emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: t ; coding: utf-8 -*-
 # vi: set ft=python sts=4 ts=4 sw=4 noet :
 
 # This file is part of Fail2Ban.
@@ -613,6 +613,9 @@ class DNSUtilsTests(unittest.TestCase):
 		self.assertEqual(res, ['192.0.43.10'])
 		res = DNSUtils.textToIp('www.example.com', 'yes')
 		self.assertEqual(res, ['192.0.43.10'])
+		# unicode test
+		res = DNSUtils.textToIp('☃.net', 'warn')
+		self.assertEqual(res, ['38.103.165.5'])
 
 	def testTextToIp(self):
 		# Test hostnames

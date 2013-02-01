@@ -590,7 +590,7 @@ class DNSUtils:
 			Thanks to Kevin Drapel.
 		"""
 		try:
-			return socket.gethostbyname_ex(dns)[2]
+			return socket.gethostbyname_ex(unicode(dns, 'utf-8').encode("idna"))[2]
 		except socket.gaierror:
 			logSys.warn("Unable to find a corresponding IP address for %s"
 						% dns)
