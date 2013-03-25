@@ -327,10 +327,12 @@ def get_monitor_failures_testcase(Filter_):
 	_, testclass_name = tempfile.mkstemp('fail2ban', 'monitorfailures')
 
 	class MonitorFailures(unittest.TestCase):
+		count = 0
 		def setUp(self):
 			"""Call before every test case."""
 			self.filter = self.name = 'NA'
-			self.name = testclass_name
+			self.name = '%s-%d' % (testclass_name, self.count)
+			MonitorFailures.count += 1 # so we have unique filenames across tests
 			self.file = open(self.name, 'a')
 			self.jail = DummyJail()
 			self.filter = Filter_(self.jail)
@@ -353,6 +355,7 @@ def get_monitor_failures_testcase(Filter_):
 			self.filter.join()		  # wait for the thread to terminate
 			#print "D: KILLING THE FILE"
 			_killfile(self.file, self.name)
+			#time.sleep(0.2)			  # Give FS time to ack the removal
 			pass
 
 		def isFilled(self, delay=2.):
@@ -429,7 +432,7 @@ def get_monitor_failures_testcase(Filter_):
 			# if we move file into a new location while it has been open already
 			self.file = _copy_lines_between_files(GetFailures.FILENAME_01, self.name,
 												  n=14, mode='w')
-			self.assertTrue(self.isEmpty(4))
+			self.assertTrue(self.isEmpty(2))
 			self.assertRaises(FailManagerEmpty, self.filter.failManager.toBan)
 			self.assertEqual(self.filter.failManager.getFailTotal(), 2) # Fails with Poll from time to time
 
