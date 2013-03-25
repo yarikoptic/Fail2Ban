@@ -429,7 +429,7 @@ def get_monitor_failures_testcase(Filter_):
 			# if we move file into a new location while it has been open already
 			self.file = _copy_lines_between_files(GetFailures.FILENAME_01, self.name,
 												  n=14, mode='w')
-			self.assertTrue(self.isEmpty(2))
+			self.assertTrue(self.isEmpty(4))
 			self.assertRaises(FailManagerEmpty, self.filter.failManager.toBan)
 			self.assertEqual(self.filter.failManager.getFailTotal(), 2) # Fails with Poll from time to time
 
