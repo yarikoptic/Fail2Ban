@@ -36,13 +36,10 @@ from testcases import jailtestcase
 from testcases import servertestcase
 from testcases import datedetectortestcase
 from testcases import actiontestcase
-<<<<<<< HEAD
 from testcases import sockettestcase
-=======
 from testcases import actionstestcase
 from testcases import dnsutilstestcase
 #from testcases import clienttestcase
->>>>>>> ENH: IPv6 with added tests
 from server.mytime import MyTime
 
 from optparse import OptionParser, Option
