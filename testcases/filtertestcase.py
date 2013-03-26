@@ -117,9 +117,9 @@ def _copy_lines_between_files(fin, fout, n=None, skip=0, mode='a', terminal_line
 		if terminal_line is not None and l == terminal_line:
 			break
 		fout.write(l)
-		fout.flush()
 		i += 1
 	# to give other threads possibly some time to crunch
+	fout.flush()
 	time.sleep(0.1)
 	return fout
 
