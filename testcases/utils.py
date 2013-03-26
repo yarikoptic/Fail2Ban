@@ -92,10 +92,10 @@ class FormatterWithTraceBack(logging.Formatter):
 	TODO: might need locking in case of compressed tracebacks
 	"""
 	def __init__(self, fmt, *args, **kwargs):
-		super(FormatterWithTraceBack, self).__init__(fmt=fmt, *args, **kwargs)
+		logging.Formatter.__init__(self, fmt=fmt, *args, **kwargs)
 		compress = '%(tbc)s' in fmt
 		self._tb = TraceBack(compress=compress)
 
 	def format(self, record):
 		record.tbc = record.tb = self._tb()
-		return super(FormatterWithTraceBack, self).format(record)
+		return logging.Formatter.format(self, record)
