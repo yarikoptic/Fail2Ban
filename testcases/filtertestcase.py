@@ -96,7 +96,7 @@ def _assert_correct_last_attempt(utest, filter_, output, count=None):
 		# when we are testing without jails
 		ticket = filter_.failManager.toBan()
 
-	attempts = ticket.getAttempt()
+	attempts = ticket.getFailures()
 	date = ticket.getTime()
 	ip = ticket.getIP()
 	matches = ticket.getMatches()

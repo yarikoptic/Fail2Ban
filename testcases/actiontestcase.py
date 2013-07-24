@@ -86,20 +86,21 @@ class ExecuteAction(unittest.TestCase):
 			'xyz': "890",
 		}
 		self.assertEqual(
-			self.__action.replaceTag("Text<br>text", aInfo),
+			self.__action.replaceTags("Text<br>text", aInfo),
 			"Text\ntext")
 		self.assertEqual(
-			self.__action.replaceTag("Text <HOST> text", aInfo),
+			self.__action.replaceTags("Text <HOST> text", aInfo),
 			"Text 192.0.2.0 text")
 		self.assertEqual(
-			self.__action.replaceTag("Text <xyz> text <ABC> ABC", aInfo),
+			self.__action.replaceTags("Text <xyz> text <ABC> ABC", aInfo),
 			"Text 890 text 123 ABC")
 		self.assertEqual(
-			self.__action.replaceTag("<matches>",
+			self.__action.replaceTags("<matches>",
 				{'matches': "some >char< should \< be[ escap}ed&"}),
 			r"some \>char\< should \\\< be\[ escap\}ed\&")
 
 	def testExecuteActionBan(self):
+		# TODO:  tempfile
 		self.__action.setActionStart("touch /tmp/fail2ban.test")
 		self.__action.setActionStop("rm -f /tmp/fail2ban.test")
 		self.__action.setActionBan("echo -n")

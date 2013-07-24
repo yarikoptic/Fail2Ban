@@ -141,7 +141,7 @@ class Action:
 			if not Action.substituteRecursiveTags(self.__cInfo):
 				logSys.error("Cinfo/definitions contain self referencing definitions and cannot be resolved")
 				return False
-		startCmd = Action.replaceTag(self.__actionStart, self.__cInfo)
+		startCmd = Action.replaceTags(self.__actionStart, self.__cInfo)
 		return Action.executeCmd(startCmd)
 	
 	##
@@ -166,8 +166,8 @@ class Action:
 	#
 	# @return True if the command succeeded
 	
-	def execActionBan(self, aInfo):
-		return self.__processCmd(self.__actionBan, aInfo)
+	def execActionBan(self, ticket):
+		return self.__processCmd(self.__actionBan, ticket)
 	
 	##
 	# Set the "unban" command.
@@ -191,8 +191,8 @@ class Action:
 	#
 	# @return True if the command succeeded
 	
-	def execActionUnban(self, aInfo):
-		return self.__processCmd(self.__actionUnban, aInfo)
+	def execActionUnban(self, ticket):
+		return self.__processCmd(self.__actionUnban, ticket)
 	
 	##
 	# Set the "check" command.
@@ -237,7 +237,7 @@ class Action:
 	# @return True if the command succeeded
 	
 	def execActionStop(self):
-		stopCmd = Action.replaceTag(self.__actionStop, self.__cInfo)
+		stopCmd = Action.replaceTags(self.__actionStop, self.__cInfo)
 		return Action.executeCmd(stopCmd)
 
 	##
@@ -248,7 +248,8 @@ class Action:
 	# b = <a>_3	b = 3_3
 	# @param	tags, a dictionary
 	# @returns	tags altered or False if there is a recursive definition
-	#@staticmethod
+
+	@staticmethod
 	def substituteRecursiveTags(tags):
 		t = re.compile(r'<([^ >]+)>')
 		for tag, value in tags.iteritems():
@@ -264,34 +265,32 @@ class Action:
 						m = t.search(value, m.start())
 					else:
 						# Missing tags are ok so we just continue on searching.
-						# cInfo can contain aInfo elements like <HOST> and valid shell
-						# constructs like <STDIN>.
+						# cInfo can contain ticket (former aInfo) elements like
+						# <HOST> and valid shell constructs like <STDIN>.
 						m = t.search(value, m.start() + 1)
 			tags[tag] = value
 		return tags
-	substituteRecursiveTags = staticmethod(substituteRecursiveTags)
 
-	#@staticmethod
+	@staticmethod
 	def escapeTag(tag):
 		for c in '\\#&;`|*?~<>^()[]{}$\n\'"':
 			if c in tag:
 				tag = tag.replace(c, '\\' + c)
 		return tag
-	escapeTag = staticmethod(escapeTag)
 
 	##
-	# Replaces tags in query with property values in aInfo.
+	# Replaces tags in query with property values in info dict.
 	#
 	# @param query the query string with tags
-	# @param aInfo the properties
+	# @param info  the dict with key,value pairs
 	# @return a string
-	
-	#@staticmethod
-	def replaceTag(query, aInfo):
+
+	@staticmethod
+	def replaceTags(query, info):
 		""" Replace tags in query
 		"""
 		string = query
-		for tag, value in aInfo.iteritems():
+		for tag, value in info.iteritems():
 			value = str(value)			  # assure string
 			if tag == 'matches':
 				# That one needs to be escaped since its content is
@@ -301,8 +300,7 @@ class Action:
 		# New line
 		string = string.replace("<br>", '\n')
 		return string
-	replaceTag = staticmethod(replaceTag)
-	
+
 	##
 	# Executes a command with preliminary checks and substitutions.
 	#
@@ -310,20 +308,21 @@ class Action:
 	# in order to check if pre-requirements are met. If this check fails,
 	# it tries to restore a sane environment before executing the real
 	# command.
-	# Replaces "aInfo" and "cInfo" in the query too.
+	#
+	# Uses "ticket" and "cInfo" to replace tags in the cmd.
 	#
 	# @param cmd The command to execute
-	# @param aInfo Dynamic properties
+	# @param ticket The ticket (optional) which lead to the command
 	# @return True if the command succeeded
 	
-	def __processCmd(self, cmd, aInfo = None):
+	def __processCmd(self, cmd, ticket=None):
 		""" Executes an OS command.
 		"""
 		if cmd == "":
 			logSys.debug("Nothing to do")
 			return True
-		
-		checkCmd = Action.replaceTag(self.__actionCheck, self.__cInfo)
+		# TODO: yoh -- surprise, we have no unittests covering this!
+		checkCmd = Action.replaceTags(self.__actionCheck, self.__cInfo)
 		if not Action.executeCmd(checkCmd):
 			logSys.error("Invariant check failed. Trying to restore a sane" +
 						 " environment")
@@ -334,13 +333,13 @@ class Action:
 				return False
 
 		# Replace tags
-		if not aInfo is None:
-			realCmd = Action.replaceTag(cmd, aInfo)
+		if ticket is not None:
+			realCmd = Action.replaceTags(cmd, ticket)
 		else:
 			realCmd = cmd
 		
 		# Replace static fields
-		realCmd = Action.replaceTag(realCmd, self.__cInfo)
+		realCmd = Action.replaceTags(realCmd, self.__cInfo)
 		
 		return Action.executeCmd(realCmd)
 
@@ -356,7 +355,7 @@ class Action:
 	# @param realCmd the command to execute
 	# @return True if the command succeeded
 
-	#@staticmethod
+	@staticmethod
 	def executeCmd(realCmd):
 		logSys.debug(realCmd)
 		_cmd_lock.acquire()
@@ -379,5 +378,4 @@ class Action:
 		finally:
 			_cmd_lock.release()
 		return False
-	executeCmd = staticmethod(executeCmd)
-	
+

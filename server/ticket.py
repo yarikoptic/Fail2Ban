@@ -40,39 +40,52 @@ class Ticket:
 		"""
 
 		self.setIP(ip)
-		self.__time = time
-		self.__attempt = 0
-		self.__file = None
-		self.__matches = matches or []
+		self._time = time
+		self._failures = 0
+		self._matches = matches or []
 
 	def __str__(self):
 		return "%s: ip=%s time=%s #attempts=%d" % \
-			   (self.__class__.__name__.split('.')[-1], self.__ip, self.__time, self.__attempt)
-	
+			   (self.__class__.__name__.split('.')[-1],
+				self._ip, self._time, self._failures)
+
+	def __getitem__(self, k):
+		"""Convenience to mimic a dict behavior
+
+		so it could serve previously used aInfo (i.e. for strings interpolations etc)
+		"""
+		if k == 'matches':
+			return "".join(self._matches)
+		else:
+			return getattr(self, '_' + k)
+
+	def iteritems(self):
+		for k in ('ip', 'failures', 'matches', 'time'):
+			yield (k, self[k])
 
 	def setIP(self, value):
 		if isinstance(value, basestring):
 			# guarantee using regular str instead of unicode for the IP
 			value = str(value)
-		self.__ip = value
+		self._ip = value
 	
 	def getIP(self):
-		return self.__ip
-	
+		return self._ip
+
 	def setTime(self, value):
-		self.__time = value
+		self._time = value
 	
 	def getTime(self):
-		return self.__time
+		return self._time
 	
-	def setAttempt(self, value):
-		self.__attempt = value
+	def setFailures(self, value):
+		self._failures = value
 	
-	def getAttempt(self):
-		return self.__attempt
+	def getFailures(self):
+		return self._failures
 
 	def getMatches(self):
-		return self.__matches
+		return self._matches
 
 
 class FailTicket(Ticket):

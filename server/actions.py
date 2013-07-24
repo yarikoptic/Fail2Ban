@@ -167,20 +167,17 @@ class Actions(JailThread):
 	def __checkBan(self):
 		ticket = self.jail.getFailTicket()
 		if ticket != False:
-			aInfo = dict()
+			# yoh: not sure if all this FailTicket -> BanTicket
+			#      business is needed
 			bTicket = BanManager.createBanTicket(ticket)
-			aInfo["ip"] = bTicket.getIP()
-			aInfo["failures"] = bTicket.getAttempt()
-			aInfo["time"] = bTicket.getTime()
-			aInfo["matches"] = "".join(bTicket.getMatches())
 			if self.__banManager.addBanTicket(bTicket):
-				logSys.warn("[%s] Ban %s" % (self.jail.getName(), aInfo["ip"]))
+				logSys.warn("[%s] Ban %s" % (self.jail.getName(), bTicket.getIP()))
 				for action in self.__actions:
-					action.execActionBan(aInfo)
+					action.execActionBan(bTicket)
 				return True
 			else:
 				logSys.info("[%s] %s already banned" % (self.jail.getName(),
-														aInfo["ip"]))
+														bTicket["ip"]))
 		return False
 	
 	##
@@ -209,15 +206,9 @@ class Actions(JailThread):
 	# ticket.
 	
 	def __unBan(self, ticket):
-		aInfo = dict()
-		aInfo["ip"] = ticket.getIP()
-		aInfo["failures"] = ticket.getAttempt()
-		aInfo["time"] = ticket.getTime()
-		aInfo["matches"] = "".join(ticket.getMatches())
-		logSys.warn("[%s] Unban %s" % (self.jail.getName(), aInfo["ip"]))
+		logSys.warn("[%s] Unban %s" % (self.jail.getName(), ticket.getIP()))
 		for action in self.__actions:
-			action.execActionUnban(aInfo)
-			
+			action.execActionUnban(ticket)
 	
 	##
 	# Get the status of the filter.
