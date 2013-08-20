@@ -1,0 +1,3 @@
+[submodule "3rdparty/locations"]
+	path = 3rdparty/locations
+	url = git://github.com/LyleScott/Fail2BanLocations
