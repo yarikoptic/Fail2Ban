@@ -1,0 +1,15 @@
+[ GithubUser
+    { githubOwnerAvatarUrl = "https://0.gravatar.com/avatar/004e831787204c4a5be80c5f55227764?d=https%3A%2F%2Fidenticons.github.com%2F4ceffffe634955fda2cfc30db0d0acc1.png"
+    , githubOwnerLogin = "grooverdan"
+    , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+    , githubOwnerId = 462287
+    , githubOwnerGravatarId = "004e831787204c4a5be80c5f55227764"
+    }
+, GithubUser
+    { githubOwnerAvatarUrl = "https://0.gravatar.com/avatar/1b375807880ce7c37d51c70aa74be14a?d=https%3A%2F%2Fidenticons.github.com%2F6bc9cba0ada17911edbd117f2c2be78c.png"
+    , githubOwnerLogin = "staticsafe"
+    , githubOwnerUrl = "https://api.github.com/users/staticsafe"
+    , githubOwnerId = 497804
+    , githubOwnerGravatarId = "1b375807880ce7c37d51c70aa74be14a"
+    }
+]

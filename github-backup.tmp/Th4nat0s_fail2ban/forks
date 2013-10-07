@@ -1,0 +1,42 @@
+[ Repo
+    { repoSshUrl = "git@github.com:ajhoughton/fail2ban.git"
+    , repoDescription = Just
+                          "Daemon to ban hosts that cause multiple authentication errors"
+    , repoCreatedAt = GithubDate
+                        { fromGithubDate = 2012-11-0810:56:59 UTC
+                        }
+    , repoHtmlUrl = "https://github.com/ajhoughton/fail2ban"
+    , repoSvnUrl = "https://github.com/ajhoughton/fail2ban"
+    , repoForks = 0
+    , repoHomepage = Just "http://www.fail2ban.org"
+    , repoFork = True
+    , repoGitUrl = "git://github.com/ajhoughton/fail2ban.git"
+    , repoPrivate = False
+    , repoCloneUrl = "https://github.com/ajhoughton/fail2ban.git"
+    , repoSize = 140
+    , repoUpdatedAt = GithubDate
+                        { fromGithubDate = 2013-01-1301:12:07 UTC
+                        }
+    , repoWatchers = 0
+    , repoOwner = GithubUser
+                    { githubOwnerAvatarUrl = "https://1.gravatar.com/avatar/4481fa93eb8710047ed4e11a3ac533c8?d=https%3A%2F%2Fidenticons.github.com%2F4ecaf689ef9ae01b7710e9ae6166730c.png"
+                    , githubOwnerLogin = "ajhoughton"
+                    , githubOwnerUrl = "https://api.github.com/users/ajhoughton"
+                    , githubOwnerId = 2750072
+                    , githubOwnerGravatarId = "4481fa93eb8710047ed4e11a3ac533c8"
+                    }
+    , repoName = "fail2ban"
+    , repoLanguage = Just "Python"
+    , repoMasterBranch = Just "master"
+    , repoPushedAt = Just
+                       GithubDate
+                         { fromGithubDate = 2012-11-0811:08:37 UTC
+                         }
+    , repoId = 6595042
+    , repoUrl = "https://api.github.com/repos/ajhoughton/fail2ban"
+    , repoOpenIssues = 0
+    , repoHasWiki = Just False
+    , repoHasIssues = Just False
+    , repoHasDownloads = Just True
+    }
+]

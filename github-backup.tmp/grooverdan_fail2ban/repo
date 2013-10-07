@@ -1,0 +1,41 @@
+Repo
+  { repoSshUrl = "git@github.com:grooverdan/fail2ban.git"
+  , repoDescription = Just
+                        "Daemon to ban hosts that cause multiple authentication errors"
+  , repoCreatedAt = GithubDate
+                      { fromGithubDate = 2012-02-1121:10:23 UTC
+                      }
+  , repoHtmlUrl = "https://github.com/grooverdan/fail2ban"
+  , repoSvnUrl = "https://github.com/grooverdan/fail2ban"
+  , repoForks = 1
+  , repoHomepage = Just "http://www.fail2ban.org"
+  , repoFork = True
+  , repoGitUrl = "git://github.com/grooverdan/fail2ban.git"
+  , repoPrivate = False
+  , repoCloneUrl = "https://github.com/grooverdan/fail2ban.git"
+  , repoSize = 6350
+  , repoUpdatedAt = GithubDate
+                      { fromGithubDate = 2013-10-0510:16:43 UTC
+                      }
+  , repoWatchers = 2
+  , repoOwner = GithubUser
+                  { githubOwnerAvatarUrl = "https://0.gravatar.com/avatar/004e831787204c4a5be80c5f55227764?d=https%3A%2F%2Fidenticons.github.com%2F4ceffffe634955fda2cfc30db0d0acc1.png"
+                  , githubOwnerLogin = "grooverdan"
+                  , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+                  , githubOwnerId = 462287
+                  , githubOwnerGravatarId = "004e831787204c4a5be80c5f55227764"
+                  }
+  , repoName = "fail2ban"
+  , repoLanguage = Just "Python"
+  , repoMasterBranch = Just "master"
+  , repoPushedAt = Just
+                     GithubDate
+                       { fromGithubDate = 2013-10-0510:03:26 UTC
+                       }
+  , repoId = 3417892
+  , repoUrl = "https://api.github.com/repos/grooverdan/fail2ban"
+  , repoOpenIssues = 0
+  , repoHasWiki = Just False
+  , repoHasIssues = Just False
+  , repoHasDownloads = Just True
+  }
