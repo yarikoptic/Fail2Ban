@@ -1,0 +1,40 @@
+Issue
+  { issueClosedAt = Nothing
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2013-02-0611:03:23 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/equalitie/fail2ban/issues/2"
+  , issueClosedBy = Nothing
+  , issueLabels = [ IssueLabel
+                      { labelColor = "fc2929"
+                      , labelUrl = "https://api.github.com/repos/equalitie/fail2ban/labels/bug"
+                      , labelName = "bug"
+                      }
+                  ]
+  , issueNumber = 2
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://2.gravatar.com/avatar/0d44a65c5e7e52438083db7581f2992c?d=https%3A%2F%2Fidenticons.github.com%2Fdbcb4113597bd2dca9ce88696a1f7317.png&r=x"
+                  , githubOwnerLogin = "vmon"
+                  , githubOwnerUrl = "https://api.github.com/users/vmon"
+                  , githubOwnerId = 1583794
+                  , githubOwnerGravatarId = "0d44a65c5e7e52438083db7581f2992c"
+                  }
+  , issueTitle = "Customize feature lists for each classifier"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Nothing
+                         , pullRequestReferencePatchUrl = Nothing
+                         , pullRequestReferenceDiffUrl = Nothing
+                         }
+  , issueUrl = "https://api.github.com/repos/equalitie/fail2ban/issues/2"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2013-02-0611:03:23 UTC
+                       }
+  , issueBody = Just
+                  "Feature lists shouldn't assume that all features are used for the training. \r\n\r\nSaying that, the AIFilter, should gather all features that are used by all classifiers, because we don't want to re-do the work for each classifiers"
+  , issueState = "open"
+  , issueId = 10687826
+  , issueComments = 0
+  , issueMilestone = Nothing
+  }

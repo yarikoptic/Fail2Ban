@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2013-02-0611:01:10 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://1.gravatar.com/avatar/0d44a65c5e7e52438083db7581f2992c?d=https%3A%2F%2Fidenticons.github.com%2Fdbcb4113597bd2dca9ce88696a1f7317.png&r=x"
+                         , githubOwnerLogin = "vmon"
+                         , githubOwnerUrl = "https://api.github.com/users/vmon"
+                         , githubOwnerId = 1583794
+                         , githubOwnerGravatarId = "0d44a65c5e7e52438083db7581f2992c"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/equalitie/fail2ban/issues/comments/13176707"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2013-02-0611:01:10 UTC
+                              }
+  , issueCommentBody = "For now AIFilter is inherited from FileFilter and three polling classes all are inherited from AIFilter"
+  , issueCommentId = 13176707
+  }

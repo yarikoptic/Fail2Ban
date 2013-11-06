@@ -1,0 +1,40 @@
+Issue
+  { issueClosedAt = Nothing
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2013-02-0611:01:10 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/equalitie/fail2ban/issues/1"
+  , issueClosedBy = Nothing
+  , issueLabels = [ IssueLabel
+                      { labelColor = "cc317c"
+                      , labelUrl = "https://api.github.com/repos/equalitie/fail2ban/labels/question"
+                      , labelName = "question"
+                      }
+                  ]
+  , issueNumber = 1
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://2.gravatar.com/avatar/0d44a65c5e7e52438083db7581f2992c?d=https%3A%2F%2Fidenticons.github.com%2Fdbcb4113597bd2dca9ce88696a1f7317.png&r=x"
+                  , githubOwnerLogin = "vmon"
+                  , githubOwnerUrl = "https://api.github.com/users/vmon"
+                  , githubOwnerId = 1583794
+                  , githubOwnerGravatarId = "0d44a65c5e7e52438083db7581f2992c"
+                  }
+  , issueTitle = "Shoud Model-based filters have different class than Regex-based filters"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Nothing
+                         , pullRequestReferencePatchUrl = Nothing
+                         , pullRequestReferenceDiffUrl = Nothing
+                         }
+  , issueUrl = "https://api.github.com/repos/equalitie/fail2ban/issues/1"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2013-01-2718:55:32 UTC
+                       }
+  , issueBody = Just
+                  "The problem with new filter is that Fail2ban does not make different filter based on different type of regex/model etc (although can make different type of filter based on polling mechanism).\r\n\r\nSo when we call addModel or addRegex the filter is already instantiated. These alls happens in server/jail.py\r\n\r\nSo solution:\r\n\r\n1. Easy: Don't distinguish between regex filters and model filters, later on filter decides if it has model or Regex.\r\n\r\n2. Medium (and dirty): each Jail has two filters and use based on if addModel or addRegex is called.\r\n\r\n3. Hard: Have  two different class, postpone instantiation till you see which one \r\n\r\nNumber 2 is dirty and against Fail2ban prinicipal of one filter per jail.\r\n\r\nOf course 1 has the benefit of being easy. Number 3 has the benifit of adhering both to object oriented principals.\r\nHowever, in addition to be easy the first model has the benefit of that a filter can do either regex or Model.\r\n\r\nThat's said, I'm going to adapt (change to; I was doing 3 till now) strategy 1, unless I face a serieus obstecle or opposition\r\n"
+  , issueState = "open"
+  , issueId = 10357279
+  , issueComments = 1
+  , issueMilestone = Nothing
+  }

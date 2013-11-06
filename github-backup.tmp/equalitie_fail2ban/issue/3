@@ -1,0 +1,40 @@
+Issue
+  { issueClosedAt = Nothing
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2013-02-0611:07:17 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/equalitie/fail2ban/issues/3"
+  , issueClosedBy = Nothing
+  , issueLabels = [ IssueLabel
+                      { labelColor = "fc2929"
+                      , labelUrl = "https://api.github.com/repos/equalitie/fail2ban/labels/bug"
+                      , labelName = "bug"
+                      }
+                  ]
+  , issueNumber = 3
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://2.gravatar.com/avatar/0d44a65c5e7e52438083db7581f2992c?d=https%3A%2F%2Fidenticons.github.com%2Fdbcb4113597bd2dca9ce88696a1f7317.png&r=x"
+                  , githubOwnerLogin = "vmon"
+                  , githubOwnerUrl = "https://api.github.com/users/vmon"
+                  , githubOwnerId = 1583794
+                  , githubOwnerGravatarId = "0d44a65c5e7e52438083db7581f2992c"
+                  }
+  , issueTitle = "AIFilter getFailures should be time sensitive or is it already"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Nothing
+                         , pullRequestReferencePatchUrl = Nothing
+                         , pullRequestReferenceDiffUrl = Nothing
+                         }
+  , issueUrl = "https://api.github.com/repos/equalitie/fail2ban/issues/3"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2013-02-0611:07:17 UTC
+                       }
+  , issueBody = Just
+                  "For now the getFailure is gathering feature out of the lines that is given to it from the traditional Regex lines of log. We should make sure that we gets all the records since the time that is specified in Jail.\r\n\r\nBecause, alternatively, the polling can only feed the new lines to the FileFilter."
+  , issueState = "open"
+  , issueId = 10687944
+  , issueComments = 0
+  , issueMilestone = Nothing
+  }
