@@ -1,0 +1,41 @@
+Issue
+  { issueClosedAt = Just
+                      GithubDate
+                        { fromGithubDate = 2013-08-2511:49:08 UTC
+                        }
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2013-09-2902:24:09 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/grooverdan/fail2ban/pull/1"
+  , issueClosedBy = Nothing
+  , issueLabels = []
+  , issueNumber = 1
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/39889?v=2"
+                  , githubOwnerLogin = "yarikoptic"
+                  , githubOwnerUrl = "https://api.github.com/users/yarikoptic"
+                  , githubOwnerId = 39889
+                  , githubOwnerGravatarId = Just "6a424256589825f609fd3477144355a0"
+                  }
+  , issueTitle = "This is apache2-auth merged into master + few post merge commits"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/1"
+                         , pullRequestReferencePatchUrl = Just
+                                                            "https://github.com/grooverdan/fail2ban/pull/1.patch"
+                         , pullRequestReferenceDiffUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/1.diff"
+                         }
+  , issueUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/1"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2013-08-2503:09:19 UTC
+                       }
+  , issueBody = Just
+                  "Theoretically a diff for your PR happen you merge this one should still look ok, but list of commits probably would be blown up... but who knows -- may be github became even smarter with time\r\n\r\nATM -- tests and fail2ban-regex would \"fail\" since we need the date with ```.milliseconds YEAR```"
+  , issueState = "closed"
+  , issueId = 18515721
+  , issueComments = 3
+  , issueMilestone = Nothing
+  }

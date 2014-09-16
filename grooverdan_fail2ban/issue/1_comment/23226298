@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2013-08-2511:49:08 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/462287?v=2"
+                         , githubOwnerLogin = "grooverdan"
+                         , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+                         , githubOwnerId = 462287
+                         , githubOwnerGravatarId = Just "004e831787204c4a5be80c5f55227764"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/comments/23226298"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2013-08-2511:49:08 UTC
+                              }
+  , issueCommentBody = "@yarikoptic  - you're still working too much on your master branch when trialling works of other people - this includes 83f1f67 which I suspect you didn't want in this PR.\r\n\r\nI didn't really mean to merge in apache-auth to master. Was looking at merging @kwirk's work but I think I was on the wrong branch when I started. And the merge commit message is wrong. My bad sorry.\r\n\r\nRef 1a1ccf953f7fc6ad - yes I did investigate it. If you're going to say needs more analysis please guide what you want. invalid hash isn't likely but I'd rather occur accidentally so I'd be prudent and cover it as a failure.\r\n\r\nThanks for 6b6aafe and this apache date format tip. All fixed on fail2ban master."
+  , issueCommentId = 23226298
+  }

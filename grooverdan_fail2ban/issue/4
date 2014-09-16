@@ -1,0 +1,41 @@
+Issue
+  { issueClosedAt = Just
+                      GithubDate
+                        { fromGithubDate = 2014-01-1308:39:33 UTC
+                        }
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2014-01-1308:39:33 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/grooverdan/fail2ban/pull/4"
+  , issueClosedBy = Nothing
+  , issueLabels = []
+  , issueNumber = 4
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/6275830?v=2"
+                  , githubOwnerLogin = "truxoft"
+                  , githubOwnerUrl = "https://api.github.com/users/truxoft"
+                  , githubOwnerId = 6275830
+                  , githubOwnerGravatarId = Just "c374bd9a235936675d56bea2e70e52fc"
+                  }
+  , issueTitle = "Dovecot and other authentications for Exim"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/4"
+                         , pullRequestReferencePatchUrl = Just
+                                                            "https://github.com/grooverdan/fail2ban/pull/4.patch"
+                         , pullRequestReferenceDiffUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/4.diff"
+                         }
+  , issueUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/4"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2014-01-1300:26:06 UTC
+                       }
+  , issueBody = Just
+                  "When using Dovecot authentication for Exim, which is relatively common, the current regex for catching authentication failures needs a small tweak. The current plain|login options are far too limiting and will only work in cases when only the Exim's rudimentary built-in authentication is used. There can be not only the dovecot_login authenticator name shown in this log example, but also dovecot_plain, ntlm, cram, cyrus, md5, and plenty of others. In fact many admins may opt for their own authentication labels, when setting up Exim. This is not something firmly given. I suggest modifying the failregex line for the authentication in the following way - simply just using \"\\w+\" instead of \"(plain|login)\":\r\n\r\n<pre>^%(pid)s \\w+ authenticator failed for (\\S+ )?\\(\\S+\\) \\[&lt;HOST&gt;\\]: 535 Incorrect authentication data( \\(set_id=.*\\)|: \\d+ Time\\(s\\))?\\s*$</pre>\r\n"
+  , issueState = "closed"
+  , issueId = 25473329
+  , issueComments = 1
+  , issueMilestone = Nothing
+  }

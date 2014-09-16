@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2013-09-0213:47:44 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/462287?v=2"
+                         , githubOwnerLogin = "grooverdan"
+                         , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+                         , githubOwnerId = 462287
+                         , githubOwnerGravatarId = Just "004e831787204c4a5be80c5f55227764"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/comments/23661188"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2013-09-0213:47:44 UTC
+                              }
+  , issueCommentBody = "> @grooverdan - I think I'm doing this correctly. You'll have to let me know.\r\n\r\nYou're done well. I'll sort it out from here. Thanks for preserving with my strictness.\r\n\r\nComments/tests on https://github.com/fail2ban/fail2ban/pull/345 appreciated too if you have time."
+  , issueCommentId = 23661188
+  }

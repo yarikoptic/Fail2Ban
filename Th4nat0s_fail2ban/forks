@@ -1,0 +1,44 @@
+[ Repo
+    { repoSshUrl = "git@github.com:al45tair/fail2ban.git"
+    , repoDescription = Just
+                          "Daemon to ban hosts that cause multiple authentication errors"
+    , repoCreatedAt = GithubDate
+                        { fromGithubDate = 2012-11-0810:56:59 UTC
+                        }
+    , repoHtmlUrl = "https://github.com/al45tair/fail2ban"
+    , repoSvnUrl = "https://github.com/al45tair/fail2ban"
+    , repoForks = 0
+    , repoHomepage = Just "http://www.fail2ban.org"
+    , repoFork = True
+    , repoGitUrl = "git://github.com/al45tair/fail2ban.git"
+    , repoPrivate = False
+    , repoCloneUrl = "https://github.com/al45tair/fail2ban.git"
+    , repoSize = 3887
+    , repoUpdatedAt = GithubDate
+                        { fromGithubDate = 2014-02-1710:03:51 UTC
+                        }
+    , repoWatchers = 0
+    , repoOwner = GithubUser
+                    { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/2750072?v=2"
+                    , githubOwnerLogin = "al45tair"
+                    , githubOwnerUrl = "https://api.github.com/users/al45tair"
+                    , githubOwnerId = 2750072
+                    , githubOwnerGravatarId = Just "4481fa93eb8710047ed4e11a3ac533c8"
+                    }
+    , repoName = "fail2ban"
+    , repoLanguage = Just "Python"
+    , repoMasterBranch = Nothing
+    , repoPushedAt = Just
+                       GithubDate
+                         { fromGithubDate = 2012-11-0811:08:37 UTC
+                         }
+    , repoId = 6595042
+    , repoUrl = "https://api.github.com/repos/al45tair/fail2ban"
+    , repoOpenIssues = 0
+    , repoHasWiki = Just False
+    , repoHasIssues = Just False
+    , repoHasDownloads = Just True
+    , repoParent = Nothing
+    , repoSource = Nothing
+    }
+]

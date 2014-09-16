@@ -1,0 +1,41 @@
+Issue
+  { issueClosedAt = Just
+                      GithubDate
+                        { fromGithubDate = 2013-09-0423:08:37 UTC
+                        }
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2013-09-0903:36:38 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/grooverdan/fail2ban/pull/2"
+  , issueClosedBy = Nothing
+  , issueLabels = []
+  , issueNumber = 2
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/1296790?v=2"
+                  , githubOwnerLogin = "afragen"
+                  , githubOwnerUrl = "https://api.github.com/users/afragen"
+                  , githubOwnerId = 1296790
+                  , githubOwnerGravatarId = Just "68d806db1b31ae8e9464b583e2aa29c6"
+                  }
+  , issueTitle = "osx-ipfw.conf with more specific actionunban"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/2"
+                         , pullRequestReferencePatchUrl = Just
+                                                            "https://github.com/grooverdan/fail2ban/pull/2.patch"
+                         , pullRequestReferenceDiffUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/2.diff"
+                         }
+  , issueUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/2"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2013-09-0120:57:48 UTC
+                       }
+  , issueBody = Just
+                  "@grooverdan - I think I'm doing this correctly. You'll have to let me know.\r\n\r\nThis should have my recent actionunban and I think it also changes <blocktype> to deny as that's what ipfw on OS X seems to do by default."
+  , issueState = "closed"
+  , issueId = 18842473
+  , issueComments = 1
+  , issueMilestone = Nothing
+  }

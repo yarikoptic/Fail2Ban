@@ -1,0 +1,41 @@
+Issue
+  { issueClosedAt = Just
+                      GithubDate
+                        { fromGithubDate = 2014-01-1308:38:56 UTC
+                        }
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2014-01-1308:38:56 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/grooverdan/fail2ban/pull/5"
+  , issueClosedBy = Nothing
+  , issueLabels = []
+  , issueNumber = 5
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/6275830?v=2"
+                  , githubOwnerLogin = "truxoft"
+                  , githubOwnerUrl = "https://api.github.com/users/truxoft"
+                  , githubOwnerId = 6275830
+                  , githubOwnerGravatarId = Just "c374bd9a235936675d56bea2e70e52fc"
+                  }
+  , issueTitle = "Matching any Exim authentication name"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/5"
+                         , pullRequestReferencePatchUrl = Just
+                                                            "https://github.com/grooverdan/fail2ban/pull/5.patch"
+                         , pullRequestReferenceDiffUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/5.diff"
+                         }
+  , issueUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/5"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2014-01-1300:39:12 UTC
+                       }
+  , issueBody = Just
+                  "As explained in https://github.com/grooverdan/fail2ban/pull/4, in Exim there can be used plenty of other standard authentication names, and in fact the names can be custom. The failregex in Exim filter should catch authentication errors regardless of the name of the authentication. Hence replacing the plain|login with the general \\w+\r\n\r\nPS: argh, I should probably merge the two pull requests, but I can't find in the Gihub help any instructions, and do not see anything in the menu, so please excuse the mess."
+  , issueState = "closed"
+  , issueId = 25473536
+  , issueComments = 2
+  , issueMilestone = Nothing
+  }

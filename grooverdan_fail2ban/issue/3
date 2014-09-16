@@ -1,0 +1,40 @@
+Issue
+  { issueClosedAt = Just
+                      GithubDate
+                        { fromGithubDate = 2013-10-2211:49:32 UTC
+                        }
+  , issueUpdatedAt = GithubDate
+                       { fromGithubDate = 2013-10-2211:49:32 UTC
+                       }
+  , issueHtmlUrl = Just
+                     "https://github.com/grooverdan/fail2ban/pull/3"
+  , issueClosedBy = Nothing
+  , issueLabels = []
+  , issueNumber = 3
+  , issueAssignee = Nothing
+  , issueUser = GithubUser
+                  { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/462287?v=2"
+                  , githubOwnerLogin = "grooverdan"
+                  , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+                  , githubOwnerId = 462287
+                  , githubOwnerGravatarId = Just "004e831787204c4a5be80c5f55227764"
+                  }
+  , issueTitle = "ENH: separate selinux and selinux-ssh"
+  , issuePullRequest = PullRequestReference
+                         { pullRequestReferenceHtmlUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/3"
+                         , pullRequestReferencePatchUrl = Just
+                                                            "https://github.com/grooverdan/fail2ban/pull/3.patch"
+                         , pullRequestReferenceDiffUrl = Just
+                                                           "https://github.com/grooverdan/fail2ban/pull/3.diff"
+                         }
+  , issueUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/3"
+  , issueCreatedAt = GithubDate
+                       { fromGithubDate = 2013-10-2211:49:11 UTC
+                       }
+  , issueBody = Just ""
+  , issueState = "closed"
+  , issueId = 21376707
+  , issueComments = 0
+  , issueMilestone = Nothing
+  }

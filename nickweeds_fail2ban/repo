@@ -1,0 +1,61 @@
+Repo
+  { repoSshUrl = "git@github.com:nickweeds/fail2ban.git"
+  , repoDescription = Just
+                        "Daemon to ban hosts that cause multiple authentication errors"
+  , repoCreatedAt = GithubDate
+                      { fromGithubDate = 2014-09-1320:31:40 UTC
+                      }
+  , repoHtmlUrl = "https://github.com/nickweeds/fail2ban"
+  , repoSvnUrl = "https://github.com/nickweeds/fail2ban"
+  , repoForks = 0
+  , repoHomepage = Just "http://www.fail2ban.org"
+  , repoFork = True
+  , repoGitUrl = "git://github.com/nickweeds/fail2ban.git"
+  , repoPrivate = False
+  , repoCloneUrl = "https://github.com/nickweeds/fail2ban.git"
+  , repoSize = 16372
+  , repoUpdatedAt = GithubDate
+                      { fromGithubDate = 2014-09-1320:49:15 UTC
+                      }
+  , repoWatchers = 0
+  , repoOwner = GithubUser
+                  { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/2964197?v=2"
+                  , githubOwnerLogin = "nickweeds"
+                  , githubOwnerUrl = "https://api.github.com/users/nickweeds"
+                  , githubOwnerId = 2964197
+                  , githubOwnerGravatarId = Just "ef9e61a4a357bac28ecdc12b8ebf0592"
+                  }
+  , repoName = "fail2ban"
+  , repoLanguage = Just "Python"
+  , repoMasterBranch = Nothing
+  , repoPushedAt = Just
+                     GithubDate
+                       { fromGithubDate = 2014-09-1420:57:35 UTC
+                       }
+  , repoId = 24005028
+  , repoUrl = "https://api.github.com/repos/nickweeds/fail2ban"
+  , repoOpenIssues = 0
+  , repoHasWiki = Just False
+  , repoHasIssues = Just False
+  , repoHasDownloads = Just True
+  , repoParent = Just (
+                   RepoRef
+                     GithubUser
+                       { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/1087378?v=2"
+                       , githubOwnerLogin = "fail2ban"
+                       , githubOwnerUrl = "https://api.github.com/users/fail2ban"
+                       , githubOwnerId = 1087378
+                       , githubOwnerGravatarId = Just "8b9fae091db6d1c53a06a3dfb05e097d"
+                       }
+                     "fail2ban" )
+  , repoSource = Just (
+                   RepoRef
+                     GithubUser
+                       { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/1087378?v=2"
+                       , githubOwnerLogin = "fail2ban"
+                       , githubOwnerUrl = "https://api.github.com/users/fail2ban"
+                       , githubOwnerId = 1087378
+                       , githubOwnerGravatarId = Just "8b9fae091db6d1c53a06a3dfb05e097d"
+                       }
+                     "fail2ban" )
+  }

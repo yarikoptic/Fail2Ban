@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2014-01-1308:39:33 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/462287?v=2"
+                         , githubOwnerLogin = "grooverdan"
+                         , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+                         , githubOwnerId = 462287
+                         , githubOwnerGravatarId = Just "004e831787204c4a5be80c5f55227764"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/comments/32152066"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2014-01-1308:39:33 UTC
+                              }
+  , issueCommentBody = "moved to https://github.com/fail2ban/fail2ban/pull/584"
+  , issueCommentId = 32152066
+  }

@@ -1,0 +1,22 @@
+[ GithubUser
+    { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/2703373?v=2"
+    , githubOwnerLogin = "peterkahl"
+    , githubOwnerUrl = "https://api.github.com/users/peterkahl"
+    , githubOwnerId = 2703373
+    , githubOwnerGravatarId = Nothing
+    }
+, GithubUser
+    { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/462287?v=2"
+    , githubOwnerLogin = "grooverdan"
+    , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+    , githubOwnerId = 462287
+    , githubOwnerGravatarId = Just "004e831787204c4a5be80c5f55227764"
+    }
+, GithubUser
+    { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/497804?v=2"
+    , githubOwnerLogin = "staticsafe"
+    , githubOwnerUrl = "https://api.github.com/users/staticsafe"
+    , githubOwnerId = 497804
+    , githubOwnerGravatarId = Just "06ad3f2c9849e76d528197597bcfce49"
+    }
+]

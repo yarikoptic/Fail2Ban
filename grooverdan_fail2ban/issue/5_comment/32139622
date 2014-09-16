@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2014-01-1300:42:24 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/2354108?v=2"
+                         , githubOwnerLogin = "coveralls"
+                         , githubOwnerUrl = "https://api.github.com/users/coveralls"
+                         , githubOwnerId = 2354108
+                         , githubOwnerGravatarId = Just "0b099d2764d0611483144406da1864ca"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/comments/32139622"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2014-01-1300:42:24 UTC
+                              }
+  , issueCommentBody = "\n[![Coverage Status](https://coveralls.io/builds/435576/badge)](https://coveralls.io/builds/435576)\n\nCoverage remained the same when pulling **2d8c0b26e443b5b91b16019b7a76dbeb09be3f0c on truxoft:patch-5** into **4d4060930bbacca501773cd4454b128be41b31e5 on grooverdan:master**.\n"
+  , issueCommentId = 32139622
+  }

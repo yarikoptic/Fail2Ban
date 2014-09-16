@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2014-01-1308:38:56 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/462287?v=2"
+                         , githubOwnerLogin = "grooverdan"
+                         , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+                         , githubOwnerId = 462287
+                         , githubOwnerGravatarId = Just "004e831787204c4a5be80c5f55227764"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/comments/32152045"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2014-01-1308:38:56 UTC
+                              }
+  , issueCommentBody = "mess excused! Contributions of a useful substance are always be made use of regardless of form.\r\n\r\nIts probably not possible to include more than one change using the web interface of github alone. Use https://help.github.com/articles/fork-a-repo to create a fork. Use git checkout -b new_feature to create a branch. Commit changes to that branch. Push the branch back (git push origin new_feature), and then go to github on your page to create a pull request.\r\n\r\nAlso take a fork of the main https://github.com/fail2ban/fail2ban repository rather than mine. It will get stuff in easier.\r\n\r\nYour requests are now here: https://github.com/fail2ban/fail2ban/pull/584"
+  , issueCommentId = 32152045
+  }

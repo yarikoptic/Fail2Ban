@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2013-08-2802:48:28 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/462287?v=2"
+                         , githubOwnerLogin = "grooverdan"
+                         , githubOwnerUrl = "https://api.github.com/users/grooverdan"
+                         , githubOwnerId = 462287
+                         , githubOwnerGravatarId = Just "004e831787204c4a5be80c5f55227764"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/comments/23386396"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2013-08-2802:48:28 UTC
+                              }
+  , issueCommentBody = "> Re: 1a1ccf9 (I did cherry-pick it to master) -- I wonder if it is not just somehow triggered by a timed out session\r\n\r\nSorry must of missed where you described this.\r\n\r\n> so it might be either incorrect logic in zotero or a \"standard\" way apache expects to have such communications to happen \r\n\r\nGiven the number of seg faults in apache that I found testing this I wouldn't be surprised at any error."
+  , issueCommentId = 23386396
+  }

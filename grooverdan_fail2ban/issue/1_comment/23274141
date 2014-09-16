@@ -1,0 +1,18 @@
+IssueComment
+  { issueCommentUpdatedAt = GithubDate
+                              { fromGithubDate = 2013-08-2616:05:06 UTC
+                              }
+  , issueCommentUser = GithubUser
+                         { githubOwnerAvatarUrl = "https://avatars.githubusercontent.com/u/39889?v=2"
+                         , githubOwnerLogin = "yarikoptic"
+                         , githubOwnerUrl = "https://api.github.com/users/yarikoptic"
+                         , githubOwnerId = 39889
+                         , githubOwnerGravatarId = Just "6a424256589825f609fd3477144355a0"
+                         }
+  , issueCommentUrl = "https://api.github.com/repos/grooverdan/fail2ban/issues/comments/23274141"
+  , issueCommentCreatedAt = GithubDate
+                              { fromGithubDate = 2013-08-2616:05:06 UTC
+                              }
+  , issueCommentBody = "ha -- good catch with 83f1f67 -- indeed I have been working to much on 'master' ;)\r\n\r\nfor some time I also thought to suggest to postpone apache-auth goodness for 0.9 but I think it should be ok in master too ;)\r\n\r\nRe: 1a1ccf9 (I did cherry-pick it to master) -- I wonder if it is not just somehow triggered by a timed out session... in my case it happens with zotero (bibliography manager) which pushes documents via webdav to my server.   I am not doing anything malicious to myself ;)  so it might be either incorrect logic in zotero or a \"standard\" way apache expects to have such communications to happen if e.g. it manages to update nonce for some valid reason while client is not aware of the change.\r\n"
+  , issueCommentId = 23274141
+  }
