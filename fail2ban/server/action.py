@@ -379,6 +379,7 @@ class CommandAction(ActionBase):
 			within the values recursively replaced.
 		"""
 		t = re.compile(r'<([^ >]+)>')
+		tlr = re.compile(r'[<>]')
 		for tag in tags.iterkeys():
 			if tag in cls._escapedTags:
 				# Escaped so won't match
@@ -402,7 +403,17 @@ class CommandAction(ActionBase):
 						value = value.replace('<%s>' % found_tag , tags[found_tag])
 						#logSys.log(5, 'value now: %s' % value)
 						done.append(found_tag)
-						m = t.search(value, m.start())
+						# we need to look back now in case this was an embedded tag
+						# TODO: make it more efficient, this is just a proof of concept
+						start = m.start()
+						for idx in range(m.start()-1, -1, -1):
+							c = value[idx]
+							if c == '>':
+								break
+							elif c == '<':
+								start = idx	  # reconsider
+								break
+						m = t.search(value, start)
 					else:
 						# Missing tags are ok so we just continue on searching.
 						# cInfo can contain aInfo elements like <HOST> and valid shell
