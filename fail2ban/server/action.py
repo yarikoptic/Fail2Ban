@@ -379,7 +379,6 @@ class CommandAction(ActionBase):
 			within the values recursively replaced.
 		"""
 		t = re.compile(r'<([^ >]+)>')
-		tlr = re.compile(r'[<>]')
 		for tag in tags.iterkeys():
 			if tag in cls._escapedTags:
 				# Escaped so won't match
