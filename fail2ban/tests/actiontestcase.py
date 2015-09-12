@@ -222,17 +222,28 @@ class CommandActionTest(LogCaptureTestCase):
 				return int(f.read())
 
 		# First test if can kill the bastard
-		self.assertRaises(
-			RuntimeError, CommandAction.executeCmd, 'bash %s' % tmpFilename, timeout=.1)
+		try:
+			self.assertFalse(
+				CommandAction.executeCmd('bash %s' % tmpFilename, timeout=.1))
+		except RuntimeError:
+			# this one is expected behavior, see
+			# https://github.com/fail2ban/fail2ban/issues/1155#issuecomment-139799958
+			pass
 		# Verify that the proccess itself got killed
 		self.assertFalse(pid_exists(getnastypid()))  # process should have been killed
 		self.assertTrue(self._is_logged('timed out'))
-		self.assertTrue(self._is_logged('killed with SIGTERM'))
+		self.assertTrue(self._is_logged('Terminated'))
 
 		# A bit evolved case even though, previous test already tests killing children processes
-		self.assertRaises(
-			RuntimeError, CommandAction.executeCmd, 'out=`bash %s`; echo ALRIGHT' % tmpFilename,
-			timeout=.2)
+		try:
+			self.assertFalse(
+				CommandAction.executeCmd('out=`bash %s`; echo ALRIGHT' % tmpFilename,
+										 timeout=.2))
+		except RuntimeError:
+			# this one is expected behavior, see
+			# https://github.com/fail2ban/fail2ban/issues/1155#issuecomment-139799958
+			pass
+
 		# Verify that the proccess itself got killed
 		self.assertFalse(pid_exists(getnastypid()))
 		self.assertTrue(self._is_logged('timed out'))
