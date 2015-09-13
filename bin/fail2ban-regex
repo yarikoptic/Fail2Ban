@@ -25,10 +25,6 @@ This tools can test regular expressions for "fail2ban".
 
 """
 
-__author__ = "Fail2Ban Developers"
-__copyright__ = "Copyright (c) 2004-2008 Cyril Jaquier, 2012-2014 Yaroslav Halchenko"
-__license__ = "GPL"
-
 import getopt
 import locale
 import logging

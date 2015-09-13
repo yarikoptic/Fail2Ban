@@ -19,9 +19,6 @@
 
 # Original author: Cyril Jaquier
 
-__author__ = "Cyril Jaquier, Lee Clemens, Yaroslav Halchenko"
-__copyright__ = "Copyright (c) 2004 Cyril Jaquier, 2011-2012 Lee Clemens, 2012 Yaroslav Halchenko"
-__license__ = "GPL"
 
 import logging
 from distutils.version import LooseVersion

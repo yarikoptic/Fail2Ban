@@ -17,12 +17,8 @@
 # along with Fail2Ban; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-# Author: Yaroslav Halchenko
 # Modified: Cyril Jaquier
 
-__author__ = 'Yaroslav Halhenko'
-__copyright__ = 'Copyright (c) 2007 Yaroslav Halchenko'
-__license__ = 'GPL'
 
 import os
 import sys

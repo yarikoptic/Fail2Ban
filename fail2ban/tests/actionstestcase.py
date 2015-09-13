@@ -17,12 +17,8 @@
 # along with Fail2Ban; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-# Author: Daniel Black
 # 
 
-__author__ = "Daniel Black"
-__copyright__ = "Copyright (c) 2013 Daniel Black"
-__license__ = "GPL"
 
 import time
 import os

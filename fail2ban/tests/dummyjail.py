@@ -19,8 +19,6 @@
 
 # Fail2Ban developers
 
-__copyright__ = "Copyright (c) 2012 Yaroslav Halchenko"
-__license__ = "GPL"
 
 from threading import Lock
 

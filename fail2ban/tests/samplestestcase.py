@@ -19,8 +19,6 @@
 
 # Fail2Ban developers
 
-__copyright__ = "Copyright (c) 2013 Steven Hiscocks"
-__license__ = "GPL"
 
 import datetime
 import fileinput

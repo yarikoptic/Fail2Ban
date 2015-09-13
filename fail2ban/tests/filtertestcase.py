@@ -19,8 +19,6 @@
 
 # Fail2Ban developers
 
-__copyright__ = "Copyright (c) 2004 Cyril Jaquier; 2012 Yaroslav Halchenko"
-__license__ = "GPL"
 
 from __builtin__ import open as fopen
 import unittest

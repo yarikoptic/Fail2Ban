@@ -17,11 +17,7 @@
 # along with Fail2Ban; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-# Author: Cyril Jaquier
 #
 
-__author__ = "Cyril Jaquier, Yaroslav Halchenko, Steven Hiscocks, Daniel Black"
-__copyright__ = "Copyright (c) 2004 Cyril Jaquier, 2005-2015 Yaroslav Halchenko, 2013-2014 Steven Hiscocks, Daniel Black"
-__license__ = "GPL-v2+"
 
 version = "0.9.3.dev"

@@ -17,6 +17,3 @@
 # along with Fail2Ban; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-__author__ = "Steven Hiscocks"
-__copyright__ = "Copyright (c) 2014 Steven Hiscocks"
-__license__ = "GPL"
