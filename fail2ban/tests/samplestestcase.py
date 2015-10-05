@@ -31,12 +31,22 @@ import re
 import sys
 import time
 import unittest
+from ..server.failregex import Regex
 from ..server.filter import Filter
 from ..client.filterreader import FilterReader
 from .utils import setUpMyTime, tearDownMyTime, CONFIG_DIR
 
 TEST_FILES_DIR = os.path.join(os.path.dirname(__file__), "files")
 
+# regexp to test greedy catch-all should be not-greedy:
+RE_HOST = Regex('<HOST>').getRegex()
+RE_WRONG_GREED = re.compile(r'\.[+\*](?!\?).*' + re.escape(RE_HOST) + r'.*(?:\.[+\*].*|[^\$])$')
+# test asserts:
+assert RE_WRONG_GREED.search('greedy .* test' + RE_HOST + ' test not hard-anchored')
+assert RE_WRONG_GREED.search('greedy .+ test' + RE_HOST + ' test vary .* anchored$')
+assert not RE_WRONG_GREED.search('greedy .* test' + RE_HOST + ' test no catch-all, hard-anchored$')
+assert not RE_WRONG_GREED.search('non-greedy .*? test' + RE_HOST + ' test not hard-anchored')
+assert not RE_WRONG_GREED.search('non-greedy .+? test' + RE_HOST + ' test vary catch-all .* anchored$')
 
 class FilterSamplesRegex(unittest.TestCase):
 
@@ -86,6 +96,14 @@ def testSampleRegexsFactory(name):
 
 		logFile = fileinput.FileInput(
 			os.path.join(TEST_FILES_DIR, "logs", name))
+
+		# test regexp contains greedy catch-all before <HOST>, that is
+		# not hard-anchored at end or has not precise sub expression after <HOST>:
+		for fr in self.filter.getFailRegex():
+			if RE_WRONG_GREED.search(fr): #pragma: no cover
+				raise AssertionError("Following regexp of \"%s\" contains greedy catch-all before <HOST>, "
+					"that is not hard-anchored at end or has not precise sub expression after <HOST>:\n%s" %
+					(name, str(fr).replace(RE_HOST, '<HOST>')))
 
 		regexsUsed = set()
 		for line in logFile:
