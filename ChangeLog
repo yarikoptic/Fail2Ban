@@ -38,6 +38,8 @@ ver. 0.9.4 (2015/XX/XXX) - wanna-be-released
        rest api and web interface (gh-1223)
      - nginx-limit-req - ban hosts, that were failed through nginx by limit
        request processing rate (ngx_http_limit_req_module)
+     - http-badbots - (previously apache-badbots) revised common filter to ban 
+       bad-bot hosts for apache/nginx (catches known spambots and software alike)
 
 - Enhancements:
    * Do not rotate empty log files
