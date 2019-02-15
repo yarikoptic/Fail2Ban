@@ -6,5 +6,22 @@ W: fail2ban: package-installs-into-obsolete-dir etc/bash_completion.d/fail2ban :
 * Find proper answer to "Syslog entries can be 'forged' by a regular
    user" mentioned in README.Debian
 
+* Fixup backports
+
+cd build && \
+ LC_ALL=C.UTF-8 \
+ FAIL2BAN_CONFIG_DIR="/build/fail2ban-0.10.2/config" \
+     PYTHONPATH="/build/fail2ban-0.10.2/.pybuild/cpython3_3.4/build/" \
+  scripts-*/fail2ban-testcases --no-network --verbosity=2
+Traceback (most recent call last):
+  File "scripts-3.4/fail2ban-testcases", line 38, in <module>
+    from fail2ban.version import version
+ImportError: No module named 'fail2ban'
+debian/rules:55: recipe for target 'override_dh_auto_test' failed
+make[1]: *** [override_dh_auto_test] Error 1
+make[1]: Leaving directory '/build/fail2ban-0.10.2'
+debian/rules:15: recipe for target 'build' failed
+
+
  -- Yaroslav O. Halchenko <debian@onerussian.com>  Wed,  6 Dec 2006 22:14:26 -0500
 
